@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Angular Demo</title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app="myApp" ng-init="pi=3.14">
+The value of pi is {{pi}}
+<div ng-controller="CustomerApp">
+
+    <input type=text id="CustomerName" ng-model="CustomerName"/>
+
+    <br/>
+
+    <input type=text id="CustomerCode" ng-model="CustomerCode"/>
+    <br/>
+    {{CustomerName}}
+    <br/>
+    {{CustomerCode}}
+    <br/>
+</div>
+
+</body>
+<script>
+function Customer($scope){
+
+    $scope.CustomerName = "Shiv";
+
+    $scope.CustomerCode = "1001";
+
+    $scope.Add = function () {
+
+    }
+    $scope.Update = function () {
+
+    }
+}
+
+var app = angular.module("myApp", []); // creating a APP
+
+app.controller("CustomerApp", Customer); // Registering the VM
+
+</script>
+
+</html>
