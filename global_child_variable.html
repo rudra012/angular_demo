@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Angular Demo</title>
+    <script src="js/angular.js"></script>
+</head>
+<body ng-app="myApp" id=1>
+
+Global value is {{Counter}}<br/>
+
+<div ng-controller="Function1">
+
+    Child Instance of {{ControllerName}} created :- {{Counter}}
+
+</div>
+<br/>
+
+<div ng-controller="Function2">
+
+    Child Instance of {{ControllerName}} created :- {{Counter}}
+
+</div>
+<br/>
+
+<div ng-controller="Function1">
+
+    Child Instance of {{ControllerName}} created :- {{Counter}}
+
+</div>
+<br/>
+
+<div ng-controller="Function2">
+
+    Child Instance of {{ControllerName}} created :- {{Counter}}
+
+</div>
+<br/>
+
+</body>
+
+<script language=javascript>
+
+function Function1($scope, $rootScope)
+
+{
+
+$rootScope.Counter = (($rootScope.Counter || 0) + 1);
+
+$scope.Counter = $rootScope.Counter;
+
+$scope.ControllerName = "Function1";
+
+}
+
+function Function2($scope, $rootScope)
+
+{
+
+$rootScope.Counter = (($rootScope.Counter || 0) + 1);
+
+$scope.ControllerName = "Function2";
+
+}
+
+var app = angular.module("myApp", []); // creating a APP
+
+app.controller("Function1", Function1); // Registering the VM
+
+app.controller("Function2", Function2);
+
+</script>
+
+</html>
